@@ -18,10 +18,21 @@
   </head>
   <body>
     <header>
-      <h1>Aasim's Todo List</h1>
+      <h1>
+        This  Todo List is
+        <span
+          class="txt-rotate"
+          data-period="1000"
+          data-rotate='[ "useful.", "simple.", "pure JS.", "attractive.", "fun!" ]'
+        ></span>
+      </h1>
     </header>
     <form>
-      <input type="text" class="todo-input" />
+      <input
+        type="text"
+        class="todo-input"
+        placeholder="Please enter a todo item"
+      />
       <button class="todo-button" type="submit">
         <i class="fas fa-plus-square"></i>
       </button>
@@ -29,11 +40,11 @@
         <select name="todos" class="filter-todo">
           <option value="all">All</option>
           <option value="completed">Completed</option>
-          <option value="uncompleted">Unompleted</option>
+          <option value="uncompleted">Uncompleted</option>
         </select>
       </div>
     </form>
-    
+
     <em> <div id="error"></div> </em>
 
     <div class="todo-container">
@@ -41,5 +52,6 @@
     </div>
 
     <script src="./app.js"></script>
+    <script src="./cursor.js"></script>
   </body>
 </html>
