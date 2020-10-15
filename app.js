@@ -7,6 +7,7 @@ const filterOption = document.querySelector(".filter-todo");
 
 //Event Listeners
 
+document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", checkInput);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
@@ -26,7 +27,7 @@ function checkInput(event) {
   }
 }
 
-function addTodo() {
+function createTodo() {
   //Todo DIV
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
@@ -47,6 +48,15 @@ function addTodo() {
   todoDiv.appendChild(trashButton);
   //Append to list
   todoList.appendChild(todoDiv);
+
+  return newTodo;
+}
+
+function addTodo() {
+  //CreateTodo Function Call
+  createTodo();
+  //Add Todos to LocalStorage
+  saveLocalTodos(todoInput.value);
   //clear Todo Input Value
   todoInput.value = "";
 }
@@ -58,6 +68,8 @@ function deleteCheck(e) {
     const todo = item.parentElement;
     //Animation
     todo.classList.add("fall");
+    //Remove from localStorage
+    removeLocalTodos(todo);
     todo.addEventListener("transitionend", () => {
       todo.remove();
     });
@@ -92,4 +104,38 @@ function filterTodo(e) {
         break;
     }
   });
+}
+
+//LocalStorage implementation
+
+function checkLocalTodos() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  return todos;
+}
+
+function saveLocalTodos(todo) {
+  let todos = checkLocalTodos();
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function getTodos() {
+  let todos = checkLocalTodos();
+  todos.forEach((todo) => {
+    let newTodo = createTodo();
+    newTodo.innerText = todo;
+  });
+}
+
+function removeLocalTodos(todo) {
+  let todos = checkLocalTodos();
+  const todoElement = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoElement), 1);
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
