@@ -20,7 +20,7 @@ function checkInput(event) {
   if (todoInput.value != "") {
     addTodo();
   } else {
-    error.textContent = "Please enter a valid input";
+    error.textContent = "Please enter a task.";
     setTimeout(() => {
       error.textContent = "";
     }, 1300);

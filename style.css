@@ -6,7 +6,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-image: linear-gradient(120deg, #845ec2, #00c9b7);
+  background-image: linear-gradient(120deg, #000000be, #000000);
   color: white;
   min-height: 100vh;
 }
@@ -21,14 +21,13 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 -1.5rem;
 }
 
 #error {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 form input,
@@ -37,21 +36,17 @@ form button {
   font-size: 2rem;
   border: none;
   background: white;
-}
-
-::placeholder {
-  font-size: 1.7rem;
-  opacity: 0.3;
+  outline: none;
 }
 
 form button {
-  color: #d88771;
+  color: #741a01;
   background: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: #d88771;
+  background: #741a01;
   color: white;
 }
 
@@ -83,12 +78,11 @@ form button:hover {
 }
 .todo-item {
   padding: 0rem 0.5rem;
-  
 }
 
 .trash-btn,
 .complete-btn {
-  background: #d88771;
+  background: #741a01;
   color: white;
   border: none;
   padding: 1rem;
@@ -96,7 +90,7 @@ form button:hover {
   font-size: 1rem;
 }
 .complete-btn {
-  background-color: #00c9b7;
+  background-color: #09026e;
 }
 
 .fa-trash,
@@ -127,7 +121,7 @@ select {
   overflow: hidden;
 }
 select {
-  color: #d88771;
+  color: #741a01;
   background: white;
   width: 10rem;
   padding: 1rem;
@@ -137,7 +131,7 @@ select {
 .select::after {
   content: "\25BC";
   position: absolute;
-  background: #d88771;
+  background: #741a01;
   top: 0;
   right: 0;
   padding: 1rem;
@@ -147,25 +141,32 @@ select {
 
 .select:hover::after {
   background: white;
-  color: #d88771;
+  color: #741a01;
 }
 option {
   font-size: 0.9rem;
 }
 
+footer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
 
 @media all and (max-width: 770px) {
   header {
     font-size: 0.8rem;
   }
+
+  header,
+  form {
+    margin: 0 0 -1.5rem;
+  }
+
   form input,
   form button {
     font-size: 0.7rem;
   }
-  ::placeholder {
-    font-size: 0.6rem;
-  }
-  
+
   #error {
     font-size: 0.6rem;
   }
@@ -186,7 +187,7 @@ option {
   }
   .select:hover::after {
     background: white;
-    color: #d88771;
+    color: #741a01;
   }
 
   .select {
@@ -206,5 +207,9 @@ option {
   }
   .todo-item {
     padding: 0rem 0.7rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
   }
 }
